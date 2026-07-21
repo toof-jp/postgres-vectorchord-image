@@ -1,0 +1,24 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "fileMatch": ["(^|/)Dockerfile$"],
+      "matchStrings": [
+        "ARG VCHORD_VERSION=(?<currentValue>\\S+)"
+      ],
+      "depNameTemplate": "tensorchord/VectorChord",
+      "datasourceTemplate": "github-releases"
+    },
+    {
+      "customType": "regex",
+      "fileMatch": ["(^|/)Dockerfile$"],
+      "matchStrings": [
+        "ARG PGVECTOR_VERSION=(?<currentValue>\\S+)"
+      ],
+      "depNameTemplate": "pgvector/pgvector",
+      "datasourceTemplate": "github-releases"
+    }
+  ]
+}
