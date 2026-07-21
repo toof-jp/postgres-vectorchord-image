@@ -16,8 +16,8 @@ RUN apt-get update \
 WORKDIR /tmp
 RUN git clone --branch ${PGVECTOR_VERSION} --depth 1 https://github.com/pgvector/pgvector.git \
     && cd pgvector \
-    && make USE_PGXS=1 \
-    && make USE_PGXS=1 DESTDIR=/tmp/install install
+    && make USE_PGXS=1 OPTFLAGS='-march=x86-64-v3 -ftree-vectorize' \
+    && make USE_PGXS=1 OPTFLAGS='-march=x86-64-v3 -ftree-vectorize' DESTDIR=/tmp/install install
 
 FROM ${BASE_IMAGE}
 USER root
