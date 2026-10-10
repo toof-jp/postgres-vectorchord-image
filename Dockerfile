@@ -1,4 +1,4 @@
-ARG BASE_IMAGE=ghcr.io/cloudnative-pg/postgresql:16-standard-trixie
+ARG BASE_IMAGE=ghcr.io/cloudnative-pg/postgresql:18-standard-trixie
 ARG VCHORD_VERSION=0.4.3
 ARG PGVECTOR_VERSION=v0.8.1
 
